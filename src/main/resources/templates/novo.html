@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <th:block layout:fragment="head-extras">
+        <title>Novo Carro</title>
+    </th:block>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <h2 class="text-primary mb-4">Adicionar Novo Carro</h2>
+        
+        <form th:action="@{/carros}" th:object="${carro}" method="post" class="card p-4 shadow-sm bg-white">
+            <div class="mb-3">
+                <label class="form-label">Marca</label>
+                <input type="text" th:field="*{marca}" class="form-control" required>
+                </div>
+            <div class="mb-3">
+                <label class="form-label">Modelo</label>
+                <input type="text" th:field="*{modelo}" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Ano</label>
+                <input type="number" th:field="*{ano}" class="form-control" required>
+            </div>
+            <div class="d-flex justify-content-between">
+                <a href="/carros" class="btn btn-secondary">Voltar</a>
+                <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+    
+    </body>
+</html>
