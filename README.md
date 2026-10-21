@@ -67,7 +67,9 @@ A aplicação sobe em `http://localhost:8080`.
 | Swagger UI | `http://localhost:8080/swagger-ui/index.html` |
 | Console H2 | `http://localhost:8080/h2-console` (JDBC URL `jdbc:h2:mem:carrosdb`, usuário `sa`) |
 
-Para rodar os testes:
+Rotas públicas: `/login`, `/register`, `/api/auth/**`, Swagger UI e console H2. As demais exigem autenticação; na API, requisições sem token válido recebem `401`.
+
+Para rodar os testes (inclui testes de integração de segurança com MockMvc):
 
 ```bash
 ./mvnw test
@@ -75,4 +77,4 @@ Para rodar os testes:
 
 ## Problemas conhecidos
 
-Hoje o `SecurityConfig` exige autenticação nas rotas `/api/auth/**`, no Swagger UI e no console H2, e não existe `GET /register`. A correção está em [#2](https://github.com/jullysilva/TheCar/issues/2).
+A interface web (Thymeleaf) ainda não completa o fluxo de login e cadastro de carros. Use a API REST pelo Swagger enquanto isso. Acompanhe em [#3](https://github.com/jullysilva/TheCar/issues/3).

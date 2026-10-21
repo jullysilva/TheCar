@@ -10,4 +10,9 @@ public class AuthPageController {
     public String loginPage() {
         return "login"; // Mostra o login.html
     }
+
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register"; // Mostra o register.html
+    }
 }
